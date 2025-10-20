@@ -313,5 +313,28 @@
       loop: true,
     });
   </script>
+  <script>
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault(); // Prevent the default right-click menu
+      alert("Right-click is disabled on this page."); // Optional alert
+    });
+
+    // Disable Ctrl+U and other key combinations if needed
+    document.addEventListener('keydown', function(e) {
+      // Check if Ctrl (or Cmd for Mac) is pressed
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'u') {
+        e.preventDefault(); // Prevent the default action
+        alert("Viewing source is disabled!"); // Optional alert
+      }
+
+      // You can also block other combinations if needed, e.g. Ctrl+Shift+I
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'i') {
+        e.preventDefault();
+        alert("Developer tools are disabled!");
+      }
+    });
+  </script>
 </body>
 </html>
+
